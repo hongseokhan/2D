@@ -41,14 +41,11 @@ class Point2D:
         except Exception as e:
             print('예외 발생상황:',e)
     
-    def get_straight_line_equation(self,input_point):
-        gradient = self.get_gradient_between_points(input_point)
-        ycoord_intercept = self.ycoord - input_point.ycoord
-        try:  
-            straight_line_equation = (gradient,ycoord_intercept)
-            return straight_line_equation
-        except Exception as e:
-            print('예외 발생상황:',e)
+
+    def get_ycoord_intercept(self,input_point):
+        ycoord_intercept = self.ycoord - input_point.ycoord  
+        return ycoord_intercept
+
 
     
 

@@ -1,8 +1,7 @@
 import os
 from point2d import Point2D
 from circle2d import Circle2D
-
-
+from line2d import Line2D
 
 class Filereader:
     def __init__(self):
@@ -35,7 +34,6 @@ class Filereader:
         return input_point
 
     def get_number_of_points(self):
-        input_circle = Point2D()
         path = "C:\\Users\\tjrgk\\Documents\\GitHub\\2D\\"
         dirs =  os.listdir(path)
         if 'point' in dirs:
@@ -76,7 +74,6 @@ class Filereader:
         return input_circle
 
     def get_number_of_circles(self):
-        input_circle = Circle2D()
         path = "C:\\Users\\tjrgk\\Documents\\GitHub\\2D\\"
         dirs =  os.listdir(path)
         if 'circle' in dirs:
@@ -88,3 +85,44 @@ class Filereader:
                     files = f.readlines()
                     number_of_circles=len(files)
         return number_of_circles
+
+    def getline(self,index):
+        input_line = Line2D()
+        path = "C:\\Users\\tjrgk\\Documents\\GitHub\\2D\\"
+        dirs =  os.listdir(path)
+        if 'line' in dirs:
+            path = os.chdir(path+"\\line")
+            dirs =os.listdir(path)
+            for filename in dirs:
+                if filename.endswith(".txt"):
+                    print("==================================================================")
+                    print("==================================================================")
+                    f = open(filename,'r')
+                    files = f.readlines()
+                    file_input_line=[file.strip() for file in files]
+                    point_list = []
+                    for i  in range(len(files)):
+                        if ',' in file_input_line[i]:
+                            file_input_line[i] = file_input_line[i].split(',')
+                            input_line.start_point.xcoord = float(file_input_line[i][0])
+                            input_line.start_point.ycoord = float(file_input_line[i][1])
+                            input_line.end_point.xcoord = float(file_input_line[i][2])
+                            input_line.end_point.ycoord = float(file_input_line[i][3])
+                            point_list.extend([input_line.start_point.xcoord,input_line.start_point.ycoord,input_line.end_point.xcoord,input_line.end_point.ycoord])
+            n = 4
+            result = [point_list[i * n:(i + 1) * n] for i in range((len(point_list) + n - 1) // n )]
+            input_line = tuple(result[index])
+            return input_line
+
+    def get_number_of_lines(self):
+        path = "C:\\Users\\tjrgk\\Documents\\GitHub\\2D\\"
+        dirs =  os.listdir(path)
+        if 'line' in dirs:
+            path = os.chdir(path+"\\line")
+            dirs =os.listdir(path)
+            for filename in dirs:
+                if filename.endswith(".txt"):
+                    f = open(filename,'r')
+                    files = f.readlines()
+                    number_of_lines=len(files)
+        return number_of_lines

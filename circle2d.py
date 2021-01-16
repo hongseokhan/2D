@@ -41,17 +41,3 @@ class Circle2D(Point2D):
         else:
             return False
 
-# input_circle = Circle2D()
-# input_circle.xcoord = 0.3
-# input_circle.ycoord = 0
-# input_circle.radius = 0.5
-# circle = Circle2D()
-# circle.xcoord = 0
-# circle.ycoord = 0
-# circle.radius = 1
-
-# a = circle.is_contain_between_circle(input_circle)
-# b = circle.is_external_meet_between_circle(input_circle)
-# c = circle.is_internal_meet_between_circle(input_circle)
-
-# print(a,b,c)
