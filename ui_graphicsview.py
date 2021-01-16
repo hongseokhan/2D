@@ -17,12 +17,12 @@ class Ui_GraphicsviewWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(796, 591)
+        MainWindow.resize(1500, 1500)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.graphicsView = QGraphicsView(self.centralwidget)
         self.graphicsView.setObjectName(u"graphicsView")
-        self.graphicsView.setGeometry(QRect(10, 10, 771, 541))
+        self.graphicsView.setGeometry(QRect(750, 300, 500, 500))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
